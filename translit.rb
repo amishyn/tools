@@ -1,7 +1,7 @@
-
+# coding: utf-8
 # translit for rails
 module Translit
-  SUPPORTED_LANGUAGES = ['ua','ru']
+  SUPPORTED_LANGUAGES = ['ua','ru','en']
   def self.new(str, lang = 'ua', leave_original = true)
     return if str.blank? || !SUPPORTED_LANGUAGES.include?(lang)
     result=""
@@ -16,11 +16,17 @@ module Translit
   def self.ru(s)
     RU_TABLE[s]
   end
+
   def self.ua(s)
     UA_TABLE[s]
   end
+
+  def self.en(s)
+    EN_TABLE[s]
+  end
   
   UA_TABLE = {
+    ' ' => ' ',
     'а' => 'а',
     'б' => 'b',
     'в' => 'v',
@@ -88,6 +94,7 @@ module Translit
   }
   
   RU_TABLE = {
+    ' ' => ' ',
     'а' =>  'a', 
     'б' =>  'b', 
     'в' =>  'v', 
@@ -156,4 +163,60 @@ module Translit
     'Я' =>  'YA',
   }
   
+  EN_TABLE = {
+    ' ' => ' ',
+    'a' => 'a',
+    'b' => 'b',
+    'c' => 'c',
+    'd' => 'd',
+    'e' => 'e',
+    'f' => 'f',
+    'g' => 'g',
+    'h' => 'h',
+    'i' => 'i',
+    'j' => 'j',
+    'k' => 'k',
+    'l' => 'l',
+    'm' => 'm',
+    'n' => 'n',
+    'o' => 'o',
+    'p' => 'p',
+    'q' => 'q',
+    'r' => 'r',
+    's' => 's',
+    't' => 't',
+    'u' => 'u',
+    'v' => 'v',
+    'w' => 'w',
+    'x' => 'x',
+    'y' => 'y',
+    'z' => 'z',
+    'A' => 'A',
+    'B' => 'B',
+    'C' => 'C',
+    'D' => 'D',
+    'E' => 'E',
+    'F' => 'F',
+    'J' => 'J',
+    'H' => 'H',
+    'I' => 'I',
+    'J' => 'J',
+    'K' => 'K',
+    'L' => 'L',
+    'M' => 'M',
+    'N' => 'N',
+    'O' => 'O',
+    'P' => 'P',
+    'Q' => 'Q',
+    'R' => 'R',
+    'S' => 'S',
+    'T' => 'T',
+    'U' => 'U',
+    'V' => 'V',
+    'W' => 'W',
+    'X' => 'X',
+    'Y' => 'Y',
+    'Z' => 'Z',
+
+  }
 end
